@@ -7,7 +7,7 @@
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% block favicon %}
-    <link rel="icon" type="image/png" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="images/icon.png">
     {% endblock favicon %}
     {% include "_variables.html" %}
     {% block fonts %}
@@ -19,24 +19,26 @@
     {% block head %}
     <link rel="stylesheet" href="{{ get_url(path="carbon.css") }}">
     {% endblock head %}
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
     {% block header %}
 
-    <header class="pos-absolute" style="background-color: transparent">
+    <header class="pos-absolute fixed top-0 left-0 right-0 z-50 bg-[#922B21] text-white backdrop-blur">
         {{ macros::render_header() }}
     </header>
 
-    <div class="hero">
+    <div class="hero pt-20">
         {% block hero %}
         <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <section class="text-center">
-            <h1 class="heading-text" style="font-size: 50px">
-                Build your static website aaa
+    <section class="text-center px-20 md:px-40 lg:px-60">
+            <h1 class="heading-text" style="font-size: 40px">
+                Evolve to Counter Evolve
             </h1>
             <h3 class="title-text">
-                <b>Juice</b> is an intuitive, elegant, and lightweight Zola theme for product websites.
+                <b>Decoding the Evolutionary Arms Race of RC48 Resistance in Bladder Cancer</b>
             </h3>
             <!-- <div> -->
                 <!-- <a class="github-button" href="https://github.com/huhu/juice" data-size="large" data-show-count="true" -->
@@ -45,12 +47,7 @@
                     <!-- data-show-count="true" aria-label="Fork huhu/juice on GitHub">Fork</a> -->
             <!-- </div> -->
         </section>
-        <img class="hero-image" style="width: 100%" src="{{ get_url(path="images/home picture.jpg") }}">
-
-        <div class="explore-more text"
-            onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
-            Explore More ⇩
-        </div>
+    <img class="hero-image w-full object-cover" src="{{ get_url(path="images/home_picture.jpg") }}" alt="hero">
         <style>
             .hero section {
                 padding: 0 5rem;
@@ -105,12 +102,11 @@
             {% endblock content %}
         </div>
 
-        {% block sidebar %}
+        <!-- {% block sidebar %}
         <div class="sidebar">
             Your can customize the sidebar.
-            <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CEBIL27E&placement=extensionsh" id="_carbonads_js"></script>
         </div>
-        {% endblock sidebar %}
+        {% endblock sidebar %} -->
     </main>
 
     {% block footer %}

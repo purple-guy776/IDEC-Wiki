@@ -46,10 +46,10 @@ header {
   align-items: center;
   margin: 0 40px;
 
-  img {
-    width: 60px;
-    margin: 0 25px;
-  }
+  // img {
+  //   width: 60px;
+  //   margin: 0 25px;
+  // }
 }
 
 .nav-item {
@@ -147,7 +147,7 @@ footer {
 
 @media screen and (min-width: 1280px) {
   .content {
-    max-width: 60%;
+    max-width: 80%;
     min-width: 800px;
   }
 }

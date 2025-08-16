@@ -19,8 +19,9 @@ highlight_code = true
 highlight_theme = "inspired-github"
 
 [extra]
+
 juice_logo_name = "Juice"
-juice_logo_path = "juice.svg"
+juice_logo_path = "images/白字透明.png"
 juice_extra_menu = [
     { title = "Home", link = "https://idec-teams.github.io/2025_OncoStrat_NMU/" }
 ]

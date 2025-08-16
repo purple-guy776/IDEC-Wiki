@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "/"
+base_url = "https://idec-teams.github.io/2025_OncoStrat_NMU/"
 
 title = "Juice - An intuitive, elegant, and lightweight Zola theme for product sites."
 # default_language = "en"

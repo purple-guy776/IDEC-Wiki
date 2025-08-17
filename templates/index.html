@@ -15,44 +15,43 @@
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
     {% endblock fonts %}
     <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="{{ get_url(path="juice.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path='juice.css') }}">
     {% block head %}
-    <link rel="stylesheet" href="{{ get_url(path="carbon.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path='carbon.css') }}">
     {% endblock head %}
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-<body>
+<body class="grid grid-cols-24">
     {% block header %}
 
-    <header class="pos-absolute fixed top-0 left-0 right-0 z-50 bg-[#922B21] text-white backdrop-blur">
+    <!-- 标签栏 -->
+    <header class="pos-absolute fixed col-span-24 z-50 bg-[#922B21] text-white backdrop-blur">
         {{ macros::render_header() }}
     </header>
 
-    <div class="hero pt-20">
+    <!-- 第一屏 -->
+    <div class="hero col-span-24">
         {% block hero %}
         <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <section id= "Headingtext1" class="text-center px-20 md:px-40 lg:px-60">
-            <h1 id="herohead" class="heading-text" style="font-size: 40px">
+        <div class="text-center">
+            <h1 class="heading-text" style="font-size: 40px">
                 Evolve to Counter Evolve
             </h1>
             <h3  class="title-text">
                 <b>Decoding the Evolutionary Arms Race of RC48 Resistance in Bladder Cancer</b>
             </h3>
-            <!-- <div> -->
-                <!-- <a class="github-button" href="https://github.com/huhu/juice" data-size="large" data-show-count="true" -->
-                    <!-- aria-label="Star huhu/juice on GitHub">Star</a> -->
-                <!-- <a class="github-button" href="https://github.com/huhu/juice/fork" data-size="large" -->
-                    <!-- data-show-count="true" aria-label="Fork huhu/juice on GitHub">Fork</a> -->
-            <!-- </div> -->
-        </section>
-    <img class="hero-image w-full object-cover" src="{{ get_url(path="images/home_picture.jpg") }}" alt="hero">
-       <div id="floatingText"  class="explore-more text"
+        </div>
+        <img class="hero-image object-cover" src="{{ get_url(path='images/home_picture.jpg') }}"
+            alt="hero">
+        <div class="explore-more text"
             onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
             Explore More ⇩
         </div>
-       <style>
+        <style>
             .hero section {
                 padding: 0 5rem;
             }
@@ -69,6 +68,28 @@
         </style>
         {% endblock hero %}
     </div>
+
+    <!-- 第二屏 -->
+    <section id="track" class="relative bg-gradient-to-b from-white/5 to-transparent">
+        <!-- 使用 24 列网格（Tailwind 风格实用类） -->
+        <div id="trackInner" class="tw-grid-24 gap-4 py-8">
+            <!-- 说明：col-start-17 col-span-6 将文字定位在右半区中靠中位置 -->
+            <div id="leftNote" class="col-start-17 col-span-6 mx-auto text-center">
+                <div class="note-inner p-4 bg-white/70 dark:bg-black/50 rounded-lg">
+                    <h3 class="font-semibold">演化动力学：RC48 抵抗</h3>
+                    <p class="text-sm mt-2">滚动以查看：突变选择 → 抵抗兴起 → 快速演化消失</p>
+                </div>
+            </div>
+
+            <!-- 图片放在右半区的偏左位置：col-start-13 col-span-6 -->
+            <div id="panWrap" class="col-start-13 col-span-6 flex items-center justify-center">
+                <img id="panImg" class="h-64 w-auto"
+                    src="{{ get_url(path='images/5aa534d0205fdbaf0a9117778af6f8b3.jpg') }}" alt="pan-on-scroll">
+            </div>
+        </div>
+        <div class="text-center text-xs opacity-70 mt-4">滚动鼠标滚轮试试 →</div>
+        <!-- 样式已移入 sass/juice.scss（tw-grid-24、col-start-*, col-span-*）-->
+    </section>
 
     {% endblock header %}
 
@@ -121,6 +142,7 @@
     </footer>
     {% endblock footer %}
 </body>
+<!-- 动画相关的脚本已移除，保留页面其余脚本（如 TOC 高亮） -->
 <script>
     const scrollHandler = entries => {
         // Find the first entry which intersecting and ratio > 0.9 to highlight.

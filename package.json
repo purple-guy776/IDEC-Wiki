@@ -1,0 +1,15 @@
+{
+  "name": "idec-wiki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./sass/styles.scss -o ./static/css/styles.css --minify",
+    "watch:css": "tailwindcss -i ./sass/styles.scss -o ./static/css/styles.css --watch",
+    "dev": "concurrently \"pnpm run watch:css\" \"zola serve\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0"
+}

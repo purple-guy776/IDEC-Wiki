@@ -5,7 +5,8 @@ title = "Juice - An intuitive, elegant, and lightweight Zola theme for product s
 # default_language = "en"
 
 # Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
+# compile_sass = true
+compile_sass = false
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
@@ -30,3 +31,6 @@ juice_exclude_menu = [
     "exclude_from_nav"
 ]
 repository_url = "https://example.com"
+
+[build]
+build-hook = "pnpm run build:css"

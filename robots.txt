@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://idec-teams.github.io/2025_OncoStrat_NMU/sitemap.xml

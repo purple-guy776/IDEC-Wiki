@@ -6,15 +6,23 @@
   color: var(--primary-text-color);
 }
 
+
 h1, .title-text {
   font-family: var(--header-font-family);
   font-size: 25px;
   font-weight: 500;
   color: var(--primary-text-color);
-  border-left: var(--primary-color) 8px solid;
+  //border-left: var(--primary-color) 8px solid;
   padding-left: 10px;
 }
-
+h1, #herohead {
+  font-family: var(--header-font-family);
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--primary-text-color);
+  //border-left: var(--primary-color) 8px solid;
+  padding-left: 10px;
+}
 h2, .subtitle-text {
   font-family: var(--header-font-family);
   font-size: 20px;
@@ -36,4 +44,19 @@ h2, .subtitle-text {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.1px;
+}
+.floatingText {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  // 使用 transform 完美居中
+  transform: translate(-90%, -50%);
+  // 确保它浮动在所有其他元素之上
+  z-index: 9999; 
+  
+  // 其他样式（可选）
+  // background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 5px;
 }

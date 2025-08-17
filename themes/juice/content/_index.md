@@ -84,7 +84,7 @@ You can override theme variable by creating a file named `_variables.html` in yo
     /* Highlight text color of table of content */
     --toc-highlight-text-color: #d46e13;
     --toc-background-color: white;
-    --code-color: #4a4a4a;
+    --code-color: #584242ff;
     --code-background-color: white;
     --shadow-color: #ddd;
     /* Font used for headers (h1 & h2) */

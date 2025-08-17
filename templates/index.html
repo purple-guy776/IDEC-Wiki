@@ -48,7 +48,11 @@
             <!-- </div> -->
         </section>
     <img class="hero-image w-full object-cover" src="{{ get_url(path="images/home_picture.jpg") }}" alt="hero">
-        <style>
+       <div class="explore-more text"
+            onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+            Explore More ⇩
+        </div>
+       <style>
             .hero section {
                 padding: 0 5rem;
             }

@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://idec-teams.github.io/2025_OncoStrat_NMU/"
+base_url = "/"
 
 title = "Juice - An intuitive, elegant, and lightweight Zola theme for product sites."
 # default_language = "en"
@@ -19,11 +19,10 @@ highlight_code = true
 highlight_theme = "inspired-github"
 
 [extra]
-
 juice_logo_name = "Juice"
-juice_logo_path = "images/白字透明.png"
+juice_logo_path = "juice.svg"
 juice_extra_menu = [
-    { title = "Home", link = "https://idec-teams.github.io/2025_OncoStrat_NMU/" }
+    { title = "Github", link = "https://github.com/huhu/juice" }
 ]
 # Add page titles here to exclude them from the nav section (case sensitive)
 juice_exclude_menu = [

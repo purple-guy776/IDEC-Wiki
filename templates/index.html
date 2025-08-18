@@ -37,7 +37,7 @@
     <div class="hero col-span-24">
         {% block hero %}
         <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <div class="text-center">
+        <div id= "Headingtext1" class="col-span-8 col-start-8 text-center">
             <h1 class="heading-text" style="font-size: 40px">
                 Evolve to Counter Evolve
             </h1>
@@ -45,11 +45,13 @@
                 <b>Decoding the Evolutionary Arms Race of RC48 Resistance in Bladder Cancer</b>
             </h3>
         </div>
-        <img class="hero-image object-cover" src="{{ get_url(path='images/home_picture.jpg') }}"
+        <img class="hero-image object-cover h-auto w-full" src="{{ get_url(path='images/home_picture.jpg') }}"
             alt="hero">
-        <div class="explore-more text"
+        <div id="floatingText" class="col-span-2 col-start-13 text-center"
             onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+            <p class="text-center">
             Explore More ⇩
+            </p>
         </div>
         <style>
             .hero section {

@@ -68,11 +68,11 @@ header {
   overflow-x: hidden;
   padding: 0 0px;
 
-  .explore-more {
-    position: absolute;
-    bottom: 20px;
-    cursor: pointer;
-  }
+  // .explore-more {
+  //   position: absolute;
+  //   bottom: 20px;
+  //   cursor: pointer;
+  // }
 }
 
 main {
@@ -124,12 +124,11 @@ main {
   max-height: 100vh;
   overflow: auto;
 }
-.floatingText {
-  position: fixed;
+#floatingText {
+  position: absolute;
   top: 90%;
   left: 50%;
-  // 使用 transform 完美居中
-  transform: translate(-80%, -50%);
+  transform: translate(-90%,-50%),;
   // 确保它浮动在所有其他元素之上
   z-index: 9999; 
   
@@ -211,9 +210,9 @@ footer {
     padding: 0;
   }
 
-  .explore-more, .toc {
-    display: none;
-  }
+  // .explore-more, .toc {
+  //   display: none;
+  // }
 
   main {
     padding: 30px;

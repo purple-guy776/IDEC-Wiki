@@ -1,22 +1,22 @@
 {% macro render_header() %}
 {% set section = get_section(path="_index.md") %}
-<a href="{{ section.permalink | safe }}">
-    <div class="logo flex items-center gap-3 text-white text-2xl font-semibold">
-        <img src="{{ get_url(path=config.extra.juice_logo_path) }}" alt="logo" class="h-10 w-59">
+<a href="{{ section.permalink | safe }}" class="col-start-2 col-span-8">
+    <div class="logoitems-center">
+        <img src="{{ get_url(path=config.extra.juice_logo_path) }}" alt="logo" class="h-16 w-auto">
         <!-- <span>{{ config.extra.juice_logo_name }}</span> -->
     </div>
 </a>
 
-<nav>
+<nav class="col-start-20 col-span-4 grid grid-cols-subgrid">
     {% if config.extra.juice_extra_menu %}
         {% for menu in config.extra.juice_extra_menu %}
-        <a class="nav-item subtitle-text ml-6 text-white text-base md:text-lg font-medium hover:underline" href="{{ menu.link | safe }}">{{ menu.title }}</a>
+        <a class="nav-item col-span-1 text-white text-base md:text-lg font-medium hover:underline" href="{{ menu.link | safe }}">{{ menu.title }}</a>
         {% endfor %}
     {% endif %}
     {% for page in section.pages %}
     {% set exclude_menu = config.extra.juice_exclude_menu | default(value=[]) %}
     {% if exclude_menu is not containing(page.title) %}
-    <a class="nav-item subtitle-text ml-6 text-white text-base md:text-lg font-medium hover:underline" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    <a class="nav-item col-span-1 ml-6 text-white text-base md:text-lg font-medium hover:underline" href="{{ page.permalink | safe }}">{{ page.title }}</a>
     {% endif %}
     {% endfor %}
     

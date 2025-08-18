@@ -1,0 +1,38 @@
+.heading-text {
+    font-family: var(--header-font-family);
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 600; /* font-semibold */
+    padding-top: 0.625rem; /* py-2.5 */
+    padding-bottom: 1.5rem; /* pb-6 */
+    color: var(--primary-text-color); /* text-primary-text-color */
+}
+h1,
+.title-text {
+    font-family: var(--header-font-family);
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 500; /* font-medium */
+    color: var(--primary-text-color); /* text-primary-text-color */
+    padding-left: 0.625rem; /* pl-2.5 */
+    border-left: 8px solid var(--primary-color); /* border-l-8 border-primary-color */
+}
+h2,
+.subtitle-text {
+    font-family: var(--header-font-family);
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 500; /* font-medium */
+    color: var(--primary-text-color); /* text-primary-text-color */
+}
+.text {
+    font-family: var(--text-font-family);
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 400; /* font-normal */
+    line-height: 1.75rem; /* leading-7 */
+    letter-spacing: 0.2px; /* tracking-[0.2px] */
+    color: var(--primary-text-color); /* text-primary-text-color */
+}
+.subtext {
+    font-family: var(--text-font-family);
+    font-size: 1rem; /* text-base */
+    font-weight: 400; /* font-normal */
+    letter-spacing: 0.1px; /* tracking-[0.1px] */
+}

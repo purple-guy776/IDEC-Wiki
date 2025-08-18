@@ -1,161 +1,197 @@
 {% import "_macros.html" as macros %}
 <!DOCTYPE html>
 <html lang="{{ lang }}">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        {% block favicon %}
+        <link rel="icon" type="image/png" href="images/icon.png" />
+        {% endblock favicon %} {% include "_variables.html" %} {% block fonts %}
+        <link
+            href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap"
+            rel="stylesheet"
+        />
+        {% endblock fonts %}
+        <link rel="stylesheet" href="/css/styles.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% block favicon %}
-    <link rel="icon" type="image/png" href="images/icon.png">
-    {% endblock favicon %}
-    {% include "_variables.html" %}
-    {% block fonts %}
-    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
-    {% endblock fonts %}
-    <link rel="stylesheet" href="/normalize.css">
-    <link rel="stylesheet" href="{{ get_url(path='juice.css') }}">
-    {% block head %}
-    <link rel="stylesheet" href="{{ get_url(path='carbon.css') }}">
-    {% endblock head %}
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- animate -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-</head>
+    <body class="grid grid-cols-24">
+        {% block header %}
 
-<body class="grid grid-cols-24">
-    {% block header %}
-
-    <!-- 标签栏 -->
-    <header class="pos-absolute fixed col-span-24 z-50 bg-[#922B21] text-white backdrop-blur">
-        {{ macros::render_header() }}
-    </header>
-
-    <!-- 第一屏 -->
-    <div class="hero col-span-full">
-        {% block hero %}
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <div class="text-center">
-            <h1 class="heading-text" style="font-size: 40px">
-                Evolve to Counter Evolve
-            </h1>
-            <h3 class="title-text">
-                <b>Decoding the Evolutionary Arms Race of RC48 Resistance in Bladder Cancer</b>
-            </h3>
+        <!-- 标签栏 -->
+        <div
+            class="fixed top-0 left-0 h-23 w-full z-50 bg-[#922B21] items-center col-span-full grid grid-cols-subgrid"
+        >
+            {{ macros::render_header() }}
         </div>
-        <img class="hero-image object-cover" src="{{ get_url(path='images/home_picture.jpg') }}" alt="hero">
-        <div class="explore-more text"
-            onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
-            Explore More ⇩
+
+        <!-- 第一屏 -->
+        <div
+            class="hero col-span-full relative min-h-screen overflow-hidden flex items-center justify-center"
+        >
+            {% block hero %}
+            <!-- 图片铺满整个.hero区域 -->
+            <img
+                src="{{ get_url(path='images/home_picture.jpg') }}"
+                alt="hero"
+                class="absolute inset-0 w-full h-auto object-cover z-0"
+            />
+            <!-- 文字内容在图片之上 -->
+            <!-- TODO: 这个字你改下吧 -->
+            <div
+                class="relative z-10 w-full flex flex-col items-center justify-center h-full text-center"
+            >
+                <h1 class="heading-text" style="font-size: 40px">
+                    Evolve to Counter Evolve
+                </h1>
+                <!-- TODO: 额这个字你也改下吧 -->
+                <h3 class="title-text">
+                    <b
+                        >Decoding the Evolutionary Arms Race of RC48 Resistance
+                        in Bladder Cancer</b
+                    >
+                </h3>
+            </div>
+            <div
+                class="explore-more text absolute bottom-5 left-1/2 -translate-x-1/2 z-20"
+                onclick="document.getElementById('space2').scrollIntoView({behavior: 'smooth'})"
+            >
+                <!-- TODO: 额这个字你也改下吧 -->
+                <a href="javascript:void(0);">Explore More</a>
+            </div>
+            {% endblock hero %}
         </div>
-        <style>
-            .hero section {
-                padding: 0 5rem;
-            }
 
-            @media screen and (max-width: 768px) {
-                .hero section {
-                    padding: 0 2rem;
-                }
+        <!-- 标签栏占位空格，确保第二屏内容不被遮挡 -->
+        <div
+            id="space2"
+            style="height: 150px; width: 100%"
+            class="col-span-full"
+        ></div>
 
-                .hero-image {
-                    display: none
-                }
-            }
-        </style>
-        {% endblock hero %}
-    </div>
-
-    <!-- 第二屏 -->
-    <div id="track" class="col-span-full grid grid-cols-subgrid">
-        <div class="col-start-3 col-span-6">
-            <h3 class="font-semibold">演化动力学：RC48 抵抗</h3>
-            <p class="text-sm mt-2">滚动以查看：突变选择 → 抵抗兴起 → 快速演化消失</p>
-        </div>
-        <div class="col-start-15 col-span-6">
-            <img id="panImg" class="h-64 w-auto" src="{{ get_url(path='images/5aa534d0205fdbaf0a9117778af6f8b3.jpg') }}"
-                alt="pan-on-scroll">
-        </div>
-        <div class="text-center text-xs opacity-70 mt-4">滚动鼠标滚轮试试 →</div>
-    </div>
-
-    {% endblock header %}
-
-    <main class="col-span-full">
-        {% block toc %}
-        {% if section.toc %}
-        {% set toc = section.toc %}
-        {% elif page.toc %}
-        {% set toc = page.toc %}
-        {% endif %}
-        {% if toc %}
-        <div class="toc">
-            <div class="toc-sticky">
-                {% for h in toc %}
-                <div class="toc-item">
-                    <a class="subtext" href="{{h.permalink | safe}}">{{ h.title }}</a>
-                </div>
-                {% if h.children %}
-                {% for h2 in h.children %}
-                <div class="toc-item-child">
-                    <a class="subtext" href="{{h2.permalink | safe}}"><small>- {{ h2.title }}</small></a>
-                </div>
-                {% endfor %}
-                {% endif %}
-                {% endfor %}
+        <!-- 第二屏 -->
+        <div id="track" class="col-span-full grid grid-cols-subgrid">
+            <div class="col-start-3 col-span-6">
+                <h3 class="font-semibold">演化动力学：RC48 抵抗</h3>
+                <p class="text-sm mt-2">
+                    滚动以查看：突变选择 → 抵抗兴起 → 快速演化消失
+                </p>
+            </div>
+            <div class="col-start-15 col-span-6">
+                <img
+                    id="panImg"
+                    class="h-64 w-auto opacity-0"
+                    src="{{ get_url(path='images/5aa534d0205fdbaf0a9117778af6f8b3.jpg') }}"
+                    alt="pan-on-scroll"
+                />
+            </div>
+            <div class="text-center text-xs opacity-70 mt-4">
+                滚动鼠标滚轮试试 →
             </div>
         </div>
-        {% endif %}
-        {% endblock toc %}
 
-        <div class="content text">
-            {% block content %}
-            <div id="features" class="heading-text">Overview</div>
-            {{ section.content | safe }}
-            {% endblock content %}
-        </div>
+        {% endblock header %}
 
-        <!-- {% block sidebar %}
+        <main class="col-span-full">
+            {% block toc %} {% if section.toc %} {% set toc = section.toc %} {%
+            elif page.toc %} {% set toc = page.toc %} {% endif %} {% if toc %}
+            <div class="toc">
+                <div class="toc-sticky">
+                    {% for h in toc %}
+                    <div class="toc-item">
+                        <a class="subtext" href="{{h.permalink | safe}}"
+                            >{{ h.title }}</a
+                        >
+                    </div>
+                    {% if h.children %} {% for h2 in h.children %}
+                    <div class="toc-item-child">
+                        <a class="subtext" href="{{h2.permalink | safe}}"
+                            ><small>- {{ h2.title }}</small></a
+                        >
+                    </div>
+                    {% endfor %} {% endif %} {% endfor %}
+                </div>
+            </div>
+            {% endif %} {% endblock toc %}
+
+            <div class="content text">
+                {% block content %}
+                <div id="features" class="heading-text">Overview</div>
+                {{ section.content | safe }} {% endblock content %}
+            </div>
+
+            <!-- {% block sidebar %}
         <div class="sidebar">
             Your can customize the sidebar.
         </div>
         {% endblock sidebar %} -->
-    </main>
+        </main>
 
-    {% block footer %}
-    <footer class="col-span-full">
-        <small class="subtext">
-            <a href="https://huhu.io">Huhu.io</a> © 2021
-        </small>
-    </footer>
-    {% endblock footer %}
-</body>
+        {% block footer %}
+        <footer class="col-span-full">
+            <small class="subtext">
+                <a href="https://huhu.io">Huhu.io</a> © 2021
+            </small>
+        </footer>
+        {% endblock footer %}
+    </body>
 
-<script>
-    const scrollHandler = entries => {
-        // Find the first entry which intersecting and ratio > 0.9 to highlight.
-        let entry = entries.find(entry => {
-            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+    <script>
+        const scrollHandler = (entries) => {
+            // Find the first entry which intersecting and ratio > 0.9 to highlight.
+            let entry = entries.find((entry) => {
+                return entry.isIntersecting && entry.intersectionRatio > 0.9;
+            });
+            if (!entry) return;
+
+            document.querySelectorAll('.toc a').forEach((item) => {
+                item.classList.remove('active');
+            });
+
+            // let url = new URL(`#${entry.target.id}`);
+            let link = document.querySelector(
+                `.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`
+            );
+            if (link) {
+                link.classList.add('active');
+                link.scrollIntoView({ behavior: 'auto', block: 'nearest' });
+            }
+        };
+        // Set -100px root margin to improve highlight experience.
+        const observer = new IntersectionObserver(scrollHandler, {
+            threshold: 1,
         });
-        if (!entry) return;
+        let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+        items.forEach((item) => observer.observe(item));
 
-        document.querySelectorAll(".toc a").forEach((item) => {
-            item.classList.remove("active");
-        });
-
-        // let url = new URL(`#${entry.target.id}`);
-        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
-        if (link) {
-            link.classList.add("active");
-            link.scrollIntoView({ behavior: "auto", block: "nearest" });
+        // Animate.css 进入/离开动画
+        const panImg = document.getElementById('panImg');
+        if (panImg) {
+            const panImgObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            panImg.classList.remove('animate__fadeOutLeft', 'opacity-0');
+                            panImg.classList.add('animate__animated', 'animate__fadeInRight');
+                            panImg.classList.add('opacity-100');
+                        } else {
+                            panImg.classList.remove('animate__fadeInRight', 'opacity-100');
+                            panImg.classList.add('animate__animated', 'animate__fadeOutLeft');
+                            panImg.classList.add('opacity-0');
+                        }
+                    });
+                },
+                { threshold: 0.5 }
+            );
+            panImgObserver.observe(panImg);
         }
-    };
-    // Set -100px root margin to improve highlight experience.
-    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
-    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
-    items.forEach(item => observer.observe(item));
-</script>
-
+    </script>
 </html>
